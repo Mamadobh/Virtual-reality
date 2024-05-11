@@ -1,0 +1,139 @@
+.header {
+  height: 6rem;
+  position: relative;
+  transition: 1.5s;
+  /* position: relative; */
+}
+nav .container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: 1s;
+}
+.scroll_to_bottom {
+  animation-name: bottom_scroll;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.cercle_image {
+  position: absolute;
+  top: -15%;
+  left: 20%;
+}
+
+nav .container .logo {
+  height: 1.9rem;
+}
+nav .container .logo img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+nav .container ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .container .nav_menu a {
+  color: var(--white-color) !important;
+  text-decoration: none;
+  position: relative;
+  transition: var(--main-transition);
+}
+nav .container .nav_menu a:after {
+  content: "";
+  width: 1.5rem;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  border-radius: 99999px;
+  background-color: transparent;
+  transition: var(--main-transition);
+}
+nav .container .nav_menu a:hover:after {
+  background-color: #b936f5;
+}
+.active_nav:after {
+  content: "";
+  width: 1.5rem;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  border-radius: 99999px;
+  background-color: #b936f5 !important;
+  transition: var(--main-transition);
+}
+nav .container .open_icn {
+  display: none;
+}
+nav .container .close_icn {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .cercle_image {
+    display: none;
+  }
+
+  nav .icn {
+    font-family: "Inter", sans-serif;
+    display: block !important;
+  }
+  nav .container .open_icn {
+    position: relative;
+    font-size: 2.6rem;
+  }
+  nav .container .close_icn {
+    font-size: 3.5rem;
+    position: absolute;
+    right: 8rem;
+    opacity: 1;
+    top: 1rem;
+  }
+
+  nav .container .nav_menu {
+    z-index: 2;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh !important;
+    background-color: rgb(37 31 63);
+    top: 0;
+    gap: 2rem;
+    right: -13rem;
+    transition: 0.3s;
+    width: 12rem;
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+
+  .show_menu {
+    right: -5px !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  nav .container .nav_menu_responsive a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+@keyframes bottom_scroll {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
